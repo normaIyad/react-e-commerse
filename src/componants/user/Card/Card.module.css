@@ -1,0 +1,55 @@
+/* The card container */
+.card {
+    position: relative;
+    width: (100% /3);
+    height: 300px;
+    overflow: hidden;
+  }
+   .font-18{
+    font-size: 18px;
+   }
+  /* The heart icon */
+  .hart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--background-color-btn);
+    color: black;
+    border-radius: 50%;
+    padding: 3px 7px;
+  }
+  
+  /* Heart SVG size */
+  .hartsvg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Image styling */
+  .cardimgtop {
+    width: 100%;
+    height: 400px;
+    object-fit: cover; /* Ensures the image covers the entire area without distortion */
+  }
+  .span{
+    color : red;
+    font-size: 24px;
+    text-decoration: none;
+    padding: 1em 1em 1em .5em;
+  }
+  .del {
+    color: rgba(rgb(114, 104, 104), 0.5);
+    text-decoration: none;
+    position: relative;
+  }
+  .del::after{
+      content: " ";
+      display: block;
+      width: 100%;
+      border-top: 2px solid rgba(red, 0.8);
+      height: 12px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: rotate(-7deg);
+  }

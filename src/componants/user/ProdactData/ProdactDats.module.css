@@ -1,0 +1,120 @@
+.mainbox{
+    margin:  70px 10px 10px 10px;
+}
+/* imgs patr ofr the eup imgs */
+.imgs{
+    width: 75%;
+}
+.supImgsContaner {
+    width: 25%;
+    margin: 50px;
+}
+.img{
+    width: 90%;
+    cursor: pointer;
+}
+.img:active{
+    border: 1px solid black;
+}
+.border{
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+/* end sup imgs part */
+/* big img part */
+.mainimg{
+    width: 75%;
+    margin: 5px;
+}
+.imge1{
+    width: 100%;
+    height: 100%;
+}
+
+/* end big img part */
+/* start detals part */
+.detals{
+    width: 50%;
+    margin: 50px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+/* comments a nd rating stars  */
+
+.stars{
+  gap: 5px; 
+  text-align: center;
+}
+.size{
+    border: 1px solid black;
+}
+.color{
+    width: 20px;
+    height: 20px;
+}
+.boxcontainer{
+    margin: 20px 5px;
+    gap: 10px;
+}
+.pricebtn{
+    margin-top: 10px;
+    width: 25%;
+    padding: 5px;
+    color: green;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 30px;
+}
+.des{
+    width: 35%;
+}
+.finalprise{
+    color: rgb(161, 22, 22);
+    font-size: 25px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+.btnaddtocard{
+    margin-top: 10px;
+    width: 25%;
+    height: 40px;
+    padding: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 30px;
+}
+.decimg{
+    width: 50%;
+}
+@media (max-width : 968px) {
+    .mainboxflex{
+        flex-direction: column;
+    }
+    .imgs{
+        width: 100%;
+    }
+    .img{
+        width: 140px;
+    }
+    .decimg{
+        width: 100%;
+    }
+    .boxcontainer{
+        flex-direction: column;
+    }
+    .pricebtn{
+        width: 100%;
+    }
+    .btnaddtocard{
+        width: 100%;
+    }
+    .des{
+        width: 100%;
+    }
+}

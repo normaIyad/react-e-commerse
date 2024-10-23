@@ -1,0 +1,130 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+.loding{
+    gap: 20px;
+    margin: 20px;
+}
+.header{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 40px;
+    color: #19174e;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+.headr-p{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 20px;   
+    counter-reset: #746969;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.reletive{
+    position: relative;
+}
+.title h2 {
+    position: relative; /* Add this to the parent element */
+   margin: 50px;  
+}
+.title h2::after{
+    content: "";
+    position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 14px;
+   height: 14px;
+   border-radius: 50%;
+   border: 2px solid #333;
+   background-color: #fff;
+   bottom: -36px;
+}
+.title h2::before{
+    /* content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    background-color: #333;
+    width: 12px; */
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    background-color: #333;
+    bottom: -30px;
+    width: 120px;
+}
+.gap{
+    gap: 30px;
+}
+.backgroundf{
+    background-color: #FFF8F6;  
+}
+.maincolor{
+ color: #19174e;
+}
+.mainbkcolor{
+    background-color: #8a33fd;
+    color: #fff;
+}
+.social-icons{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.social-icons a{
+    transition: color 0.3s ease;
+}
+@media (max-width: 768px) {
+    .none{
+        display: none;
+    }
+    
+}
+.purple{
+    background-color: blueviolet ;
+    color: #fff;
+}
+.titleLanding{
+  font-size: 60px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+a{
+    text-decoration: none;
+    color: #19174e;
+}
+/* breadcrumb for / nn /fff */
+.breadcrumb{
+    margin-top: 70px;
+    margin-bottom: 5px;
+}
+.font-weight-bold{
+     font-weight: 700;
+}
+.dark{
+    background-color: #3c4242 !important;
+    color: #fff !important;
+    padding: 20px 10px  !important  ;
+}
+.txt {
+    max-width: 100%; 
+    word-wrap: break-word; 
+}

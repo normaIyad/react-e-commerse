@@ -1,0 +1,28 @@
+.center {
+  align-self: center;
+  margin: 20px auto;
+}
+
+
+
+.imageGroup {
+  width: 50%;
+}
+
+.imgSize {
+  width: 100%; /* Adjust based on your desired size */
+  margin-bottom: 10px;
+}
+
+.imgSizeLarge {
+  width: 55%; /* Adjust for larger image */
+  height: 100%;
+}
+
+.gap {
+  margin-right: 15px;
+}
+
+.position {
+  position: relative;
+}
