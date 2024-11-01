@@ -42,7 +42,7 @@ const [data, loading, error] = useApi('https://ecommerce-node4.onrender.com/cate
     >
      {data.categories.map((category) => (
   <SwiperSlide key={category._id} className={style.SwiperSlide} >
-    <Link to={ `/cartigory/${category._id} `} >
+    <Link to={ `/cartigory/${category._id}/${category.name} `} >
     <img src={category.image.secure_url} alt={category.name} className={style.img} />
     </Link>
   

@@ -1,0 +1,21 @@
+.forgetpass{
+    margin: 70px auto  0 ;
+    padding: 100px;
+    height: 75vh;
+  background-image:   linear-gradient(to right, rgba(19, 14, 71, 0), rgb(112, 98, 137)) ;
+}
+.forgetBox{
+    display: flex;
+    align-items: center;
+    margin: 10px auto;
+    padding: 40px;
+    
+}
+.databox{
+    width: 100%;
+    padding: 40px;
+}
+.form {
+    margin: auto;
+  
+}

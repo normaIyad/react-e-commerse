@@ -1,0 +1,12 @@
+.prodactSection{
+    margin-top: 75px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.active {
+    z-index: 3;
+    color: #fff;
+    background-color: #19174e !important;
+    border-color: #19174e !important;
+}

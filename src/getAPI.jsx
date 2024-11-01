@@ -22,21 +22,3 @@ export default function useApi(api) {
     } , [api])
     return [data , error , loading]
 }
-export function usePatch(api , datas , auth){
-  const [data , setdata] = useState(null);
-  const [error , setError] = useState(null);
-  async function  patch(){
-  try{
-   const {data} = await axios.patch(api , {  productId: datas} , {headers: {
-     authorization: `Tariq__${auth}`}
-   }) ; 
-   setdata(data);
-  } catch(error){
-   setError(error.message);
-  }
-}
-useEffect(()=>{
-    patch()
-} ,[api , datas , auth] )
-return [data , error ]
-}

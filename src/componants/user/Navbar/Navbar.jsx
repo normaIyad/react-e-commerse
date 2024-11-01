@@ -8,7 +8,7 @@ import  {Context} from "../../../Context/Contxt"
 export default function Navbar() {
     const {isLogin , userData  ,logout} = useContext(Context);
     const [backgroundcolor, setBackgroundcolor] = useState("");
-   console.log(userData);
+
     const handleScroll = () => {
         if (window.scrollY > 200) {
             setBackgroundcolor('white');
@@ -63,7 +63,7 @@ export default function Navbar() {
                                 <Link className="nav-link" to="/">Home</Link>
                             </li>
                                  <li className="nav-item">
-                                <a className="nav-link">Contact us</a>
+                                <Link to={"/allprodact"}  className="nav-link"> Prodacts</Link>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link">About us</a>
@@ -76,8 +76,8 @@ export default function Navbar() {
                         </ul>
                     </div>
                     <div className={`icons d-flex align-items-center ml-2 justify-content-end ${val.gap}`}>
-                        <FontAwesomeIcon icon={faUser} className="mr-3" />
-                        {isLogin ? <span>welcome {userData?.userName} </span> : null}
+                      <Link to={"/profile"}> <FontAwesomeIcon icon={faUser} className="mr-3" /> 
+                        {isLogin ? <span>  { userData?.userName} </span> : null}  </Link> 
                       <Link to={"/card"}> <FontAwesomeIcon icon={faCartShopping} /> </Link> 
                         <FontAwesomeIcon icon={faHeart} className="mr-3" />
                     </div>

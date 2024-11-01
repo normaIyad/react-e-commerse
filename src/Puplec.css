@@ -114,7 +114,8 @@ a{
 /* breadcrumb for / nn /fff */
 .breadcrumb{
     margin-top: 70px;
-    margin-bottom: 5px;
+    margin-bottom: 0;
+    
 }
 .font-weight-bold{
      font-weight: 700;
@@ -127,4 +128,11 @@ a{
 .txt {
     max-width: 100%; 
     word-wrap: break-word; 
+}
+.margin-top{
+    margin-top: 20px;
+}
+.background{
+    background-color: #19174e;
+    color: #fff;
 }

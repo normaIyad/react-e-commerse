@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import style from "./Order.module.css"
 import { useFormik } from "formik";
 import * as yup from "yup"
-
 import "yup-phone-lite";
 
 export default function Order() {
@@ -30,7 +29,13 @@ export default function Order() {
         const token = localStorage.getItem("userToken");
         console.log(token)
         try {
-            const { data } = await axios.post("https://ecommerce-node4.onrender.com/order",formk.data ,{ headers: { Authorization: `Tariq__${token}`}});
+            const { data } = await axios.post("https://ecommerce-node4.onrender.com/order",
+                {
+                    couponName: "",
+                    address: formk.values.address,
+                    phone: formk.values.phone,
+                }
+                ,{ headers: { Authorization: `Tariq__${token}`}});
             console.log(data);
             setuserinfo(formk.values);
             alert("Order Placed Successfully")
@@ -60,22 +65,28 @@ export default function Order() {
                 <div className={`d-flex`}>
                     <div className="orderform w-50 ">
                         <form onSubmit={formk.handleSubmit}>
-                            <div className="form-group">
+                        <div className="form-group">
                                 <label htmlFor="name">Order Name</label>
                                 <input
                                     type="text"
-                                    className={`form-control ${formk.errors.couponName && formk.touched.couponName ? "is-invalid" : !formk.errors.couponName && formk.touched.couponName ? "is-valid" : ""}`}
+                                    className={`form-control ${
+                                        formk.errors.couponName && formk.touched.couponName
+                                            ? "is-invalid"
+                                            : !formk.errors.couponName && formk.touched.couponName
+                                            ? "is-valid"
+                                            : ""
+                                    }`}
                                     id="name"
                                     placeholder="Enter order Name ex(my order)"
                                     name="couponName"
+                                    value={formk.values.couponName}
                                     onChange={formk.handleChange}
-                                    value={formk.values.couponName}  // Update here
                                     onBlur={formk.handleBlur}
                                     required
                                 />
-                                {formk.errors.couponName && formk.touched.couponName ? (
-                                    <div className='invalid-feedback'>{formk.errors.couponName}</div>
-                                ) : null}
+                                {formk.errors.couponName && formk.touched.couponName && (
+                                    <div className="invalid-feedback">{formk.errors.couponName}</div>
+                                )}
                             </div>
                             <div className="form-group">
                                 <label htmlFor="address">Address</label>
@@ -114,3 +125,99 @@ export default function Order() {
         </>
     )
 }
+
+// import  {  useState } from 'react';
+// import axios from 'axios';
+// // import style from "./Order.module.css";
+// import { useFormik } from 'formik';
+
+// export default function Order() {
+// // const [orders, setOrders] = useState([]);
+
+// // const [loading, setLoading] = useState(true);
+
+// // const [error, setError] = useState(null);
+
+
+
+// const formik=useFormik({
+//     initialValues:{
+//         couponName:'',
+//         address:'',
+//         phone:'',
+//     },
+//      onSubmit:fetchOrders,
+        
+// })
+
+
+// async function fetchOrders(){
+ 
+//     const token = localStorage.getItem("userToken");
+//     try {
+//         const { data } = await axios.post(
+//             "https://ecommerce-node4.onrender.com/order/",
+//             {
+//                 couponName: "",
+//                 address: formik.values.address,
+//                 phone: formik.values.phone,
+//             },
+//             {
+//                 headers: { Authorization: `Tariq__${token}` }
+//             }
+//         );
+//         console.log(data);
+//         // setUserInfo(formk.values);
+//         alert("Order Placed Successfully");       
+//     }
+//     catch (err) {
+
+// console.log(err);
+
+
+// } 
+
+// };
+
+
+
+
+// return (
+
+// <div>
+// <div className='container'>
+// <h1>Orders</h1>
+//     <form onSubmit ={formik.handleSubmit}>
+  
+//   <div className="form-floating mb-3">
+//     <input type="Text" className="form-control" 
+//      onChange={formik.handleChange}
+//  name='address' value={formik.values.address} />
+//     <label htmlFor="Address"> Address </label>
+   
+//   </div>
+
+
+
+//   <div className="form-floating mb-3">
+//     <input type="integer" className="form-control" onChange={formik.handleChange}
+//  name='phoneNumber' value={formik.values.phone} />
+//     <label htmlFor="num">Phone Number</label>
+   
+//   </div>
+//   <div className="form-floating mb-3">
+//     <input type="integer" className="form-control" onChange={formik.handleChange}
+//  name='couponName' value={formik.values.couponName} />
+//     <label htmlFor="Num">couponName</label>
+   
+//   </div>
+
+//   <button type='submit' className='btn btn-outline-info'> Send </button>
+
+
+// </form>
+
+// </div>
+// </div>
+// )
+// };

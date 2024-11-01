@@ -9,6 +9,9 @@ import ProdactPyCatigory from "../page/user/ProdactsPyCatigores/ProdactPyCatigor
 import ShowProdact from "../page/user/ShowProdact/ShowProdact";
 import Card from "../page/user/Card/Card"
 import Order from "../page/user/Order/Order";
+import Forget from "../page/user/ForgetPass/Forget";
+import Profile from "../page/user/Profile/Profile";
+import Showallprodacts from "../page/user/Showallprodacts/Showallprodacts";
 const route = createBrowserRouter([
   {
     path: "/",
@@ -39,6 +42,15 @@ const route = createBrowserRouter([
         ),
       },
       {
+         path : "/forgetPassword",
+         element : (
+          <PublicRoute>
+           <Forget/>
+          </PublicRoute>
+         )
+
+      },
+      {
         path: "/regester",
         element: (
           <PublicRoute>
@@ -47,7 +59,7 @@ const route = createBrowserRouter([
         ),
       },
       {
-        path :"/cartigory/:catigoryId",
+        path :"/cartigory/:catigoryId/:categoryName",
         element:(
           <ProdactPyCatigory />
         ) ,
@@ -62,13 +74,28 @@ const route = createBrowserRouter([
       {
         path : "/card",
         element :(
-          <Card/>
+          <Prodactrouter>
+            <Card/>
+          </Prodactrouter>
         )
       },{
         path : "/order",
         element : (
           <Prodactrouter>
             <Order/>
+          </Prodactrouter>
+        )
+      } ,{
+        path : "/profile" ,
+        element : (
+          <Prodactrouter>
+             <Profile/>
+          </Prodactrouter>)
+      },{
+        path : "/allprodact",
+        element :(
+          <Prodactrouter>
+            <Showallprodacts />
           </Prodactrouter>
         )
       }

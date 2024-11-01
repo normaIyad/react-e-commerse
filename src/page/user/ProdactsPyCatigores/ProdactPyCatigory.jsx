@@ -14,8 +14,7 @@ import Catgrios from "../../../componants/user/Catigores/Catgrios"
 export default function ProdactPyCatigory() {
      // replace with your desired image URL or use a component for the image
     const { catigoryId , categoryName  } = useParams();
-    const catNmae = decodeURIComponent(categoryName).toLowerCase().trim();
-    console.log('Category Name:', decodeURIComponent(categoryName));
+     console.log(catigoryId , categoryName)
     const [data, error, loading] = useApi(`https://ecommerce-node4.onrender.com/products/category/${catigoryId}`)
     console.log(data, loading, error);
     if (loading) {
@@ -27,19 +26,34 @@ export default function ProdactPyCatigory() {
     if (!data || !data.products) {
         return <p>No products found.</p>;
     }
-    const prodactimg = (categoryName)=>{
-      switch(categoryName){
-        case "mobiles": return phons;
-        case "toys & games": return Toys;
-        case "home & kitchen": return home;
-        case "personal care": return takecare;
-        default: return shop;
-      }
-    }
+    // const prodactimg = (categoryName)=>{
+    //   switch(categoryName.toLowerCase){
+    //     case "mobiles": return phons;
+    //     case "toys & games": return Toys;
+    //     case "home & kitchen": return home;
+    //     case "personal care": return takecare;
+    //     default: return shop;
+    //   }
+    // }
+    const prodactimg = (catigoryId) => {
+        switch (catigoryId) {
+            case "66fb86a741aba231158e3b51":
+                return phons;
+            case "66fb864941aba231158e3b4d":
+                return Toys;
+            case "66fb86e241aba231158e3b59":
+                return home;
+            case "66fb86c541aba231158e3b55":
+                return takecare;
+            default:
+                return shop;
+        }
+    };
+          
     return (
         <>
           <section>
-            <Landing imgsrc={prodactimg(catNmae)}  title={categoryName}  para=""  link="#" />
+            <Landing imgsrc={prodactimg(catigoryId)}  title={categoryName}  para="Shop now"  link="#" />
           </section>
             <section className={`prodactSection`}>
                 <div className="container">

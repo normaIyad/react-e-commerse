@@ -6,6 +6,7 @@ export const Context = createContext();
 const Contextprovider = ({ children })  =>{
     const navigate = useNavigate();
     const [userData , setuserData] = useState("");
+    const [isSearch, setIsSearch] = useState(false);
     const [isLogin , setisLogin] = useState(localStorage.getItem('userToken') ? true : true);
     useEffect(()=>{
         const data = localStorage.getItem("userToken");
@@ -21,8 +22,10 @@ const Contextprovider = ({ children })  =>{
         setuserData("");
         navigate("/login");
     }; 
+    const [changepassword , setchangepassword] = useState(false) 
+    const [sendcode , setsendcode] = useState(false)
     return(
-        <Context.Provider value={{userData , setuserData , isLogin , setisLogin , logout  }}>
+        <Context.Provider value={{userData , setuserData , isLogin , setisLogin , logout , changepassword , setchangepassword  , sendcode , setsendcode , isSearch, setIsSearch }}>
             {children}
         </Context.Provider>
     );

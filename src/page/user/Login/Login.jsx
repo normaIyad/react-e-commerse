@@ -1,13 +1,15 @@
 import axios from 'axios';
+import  { useState } from 'react';
 import style from './Login.module.css'
 import { useFormik } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
 import * as yup from "yup"
 import { useContext } from 'react';
 import {Context} from '../../../Context/Contxt'
-import { jwtDecode } from 'jwt-decode';
+import {jwtDecode}  from 'jwt-decode';
+import SweetAlert2 from 'react-sweetalert2';
 export default function Login() {
-   
+  const [swalProps, setSwalProps] = useState({});
     const {setuserData , setisLogin} = useContext(Context);
 
   const navigate = useNavigate();
@@ -38,14 +40,28 @@ export default function Login() {
         const userdata = jwtDecode(data.token);
         setuserData(userdata);
         console.log(userdata);
+        triggerAlert();
         setisLogin(true);
         navigate("/home");
       }
     }
     catch (e) {
       console.error('Error:', e);
+      alert("Invalid Email or Password");
+      localStorage.setItem("email", formik.values.email)
     }
   }
+ 
+  function triggerAlert() {
+    setSwalProps({
+      show: true,
+      title: 'Login Successful',
+      text: 'Welcome to the application!',
+      icon: 'success',
+      confirmButtonText: 'OK',
+    });
+  }
+
   return (
     <section className={`${style.login} h-75 `}>
       <div className={`container rounded h-75`}>
@@ -53,7 +69,7 @@ export default function Login() {
           <div className={` ${style.loginForm}`}>
             <div>
               <div className='mb-3 mt-3'>
-                <h2 className={style.hstyle}>Sing In</h2>
+                <h2 className={`${style.hstyle } header`}>Sing In</h2>
               </div>
               <form onSubmit={formik.handleSubmit}>
                 <div>
@@ -70,16 +86,16 @@ export default function Login() {
                     <input type="password" className={`form-control ${formik.errors.password && formik.touched.password ? "is-invalid" : !formik.errors.password && formik.touched.password ? "is-valid" : ""}`} id="pwd" placeholder="Enter password" name="password"
                       onChange={formik.handleChange} value={formik.password} onBlur={formik.handleBlur}
                     />{
-                      formik.errors.password && formik.touched.password ? <div className='invalid-feedback'>{formik.errors.password}  </div> : null
+                      formik.errors.password && formik.touched.password ? <div className='invalid-feedback'>{formik.errors.password}  </div> :null
                     }
                     <label htmlFor="pwd">Password</label>
                   </div>
                 </div>
                 <div>
                   <div className={`mb-3 mt-3`}>
-                    <span>Forget</span> <a href=""> your password?</a>
+                    <span>Forget</span> <Link className='text-primary' to={"/forgetPassword"}> your password?</Link>
                   </div>
-                  <button type="submit" className="btn btn-primary btn-lg mb-3 mt-3 w-75 purple">
+                  <button type="submit" className="btn btn-primary btn-lg mb-3 mt-3 w-75 purple ">
                     Sign in
                   </button>
                 </div>
@@ -97,6 +113,7 @@ export default function Login() {
           </div>
         </div>
       </div>
+      <SweetAlert2 {...swalProps} />
     </section>
   )
 }
