@@ -59,7 +59,7 @@ export default function Card() {
             }
         }
         else {
-            alert("Quantity should be greater than 0");
+            alert("There not quanti");
         }
     };
     async function deleteItem(prodactid) {
@@ -95,7 +95,8 @@ export default function Card() {
         setTotal(calcolate);
     }, [products])
     if (loder) {
-        return <Loading />
+
+        return <div className='container'><Loading /></div> 
     }
     return (
         <div>
@@ -107,7 +108,7 @@ export default function Card() {
                         <nav aria-label="breadcrumb">
                             <ol className="breadcrumb">
                                 <li className="breadcrumb-item"><Link to="/home">Home</Link></li>
-                                <li className="breadcrumb-item active" aria-current="page">
+                                <li className="breadcrumb-item active " aria-current="page">
                                     Add to cart
                                 </li>
                             </ol>

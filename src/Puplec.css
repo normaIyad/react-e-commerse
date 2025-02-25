@@ -136,3 +136,6 @@ a{
     background-color: #19174e;
     color: #fff;
 }
+.addbutton{
+    width: 200px !important;
+}
